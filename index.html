@@ -21,8 +21,6 @@
       class="fixed pointer-events-none w-screen h-screen left-0 top-0 flex flex-col justify-between items-center p-12 z-50"
     >
       <div class="w-[6.5rem] h-[2.375rem]">
-        <button id="bprev" type="button">Prev</button>
-        <button id="bnext" type="button">Next</button>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 104 38"
@@ -431,9 +429,6 @@
       scrolledElements.addEventListener('scroll', (event) => {
         if (event.target.scrollWidth === event.target.scrollLeft + event.target.offsetWidth) api.next()
       })
-
-      bprev.addEventListener('click', () => api.prev())
-      bnext.addEventListener('click', () => api.next())
     </script>
   </body>
 </html>
