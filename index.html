@@ -57,8 +57,7 @@
           <video
             playsInline
             muted
-            controls
-            class="substep object-cover absolute top-[18rem] left-[2.5rem] full-on-present transition-all duration-1000 max-w-[9.375rem] w-full max-h-[13.125rem] h-full bg-[#D9D9D9] rounded-[1.25rem]" src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+            class="substep stepped-video object-cover absolute top-[18rem] left-[2.5rem] full-on-present transition-all duration-1000 max-w-[9.375rem] w-full max-h-[13.125rem] h-full bg-[#D9D9D9] rounded-[1.25rem]" src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
             data-media-autoplay="true"
             data-media-autostop="true"
             data-media-autopause="true"
@@ -230,8 +229,7 @@
           <video
             playsInline
             muted
-            controls
-            class="substep object-cover absolute top-[18rem] left-[2.5rem] full-on-present transition-all duration-1000 max-w-[9.375rem] w-full max-h-[13.125rem] h-full bg-[#D9D9D9] rounded-[1.25rem]" src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+            class="substep stepped-video object-cover absolute top-[18rem] left-[2.5rem] full-on-present transition-all duration-1000 max-w-[9.375rem] w-full max-h-[13.125rem] h-full bg-[#D9D9D9] rounded-[1.25rem]" src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
             data-media-autoplay="true"
             data-media-autostop="true"
             data-media-autopause="true"
@@ -428,6 +426,15 @@
       const app = document.querySelector("#app");
       app.dataset.width = width;
       app.dataset.height = height;
+
+      const swapControls = (element) => {
+        element.addEventListener('transitionend', () => {
+          if (element.classList.contains('substep-active')) element.setAttribute('controls', '')
+          else element.removeAttribute('controls')
+        })
+      }
+
+      document.querySelectorAll('.stepped-video').forEach(swapControls)
 
       const api = impress("app");
       api.init();
