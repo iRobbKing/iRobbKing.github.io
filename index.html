@@ -429,6 +429,8 @@
       scrolledElements.addEventListener('scroll', (event) => {
         if (event.target.scrollWidth === event.target.scrollLeft + event.target.offsetWidth) api.next()
       })
+
+      document.addEventListener("dblclick", () => api.next())
     </script>
   </body>
 </html>
