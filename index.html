@@ -165,6 +165,7 @@
         </div>
       </div>
       <div class="step" data-rel-x="-578" data-rel-y="758">
+        <div class="opacity-0 transition-all disabler"></div>
         <div class="w-screen h-screen flex flex-col gap-y-4 items-start pt-[8.125rem] px-[2.5rem]">
           <div class="border border-black rounded-full font-caption font-bold text-xs px-3 py-2">04 Преимущества</div>
           <div
@@ -182,27 +183,54 @@
         </div>
       </div>
       <div class="step" data-rel-x="578" data-rel-y="758">
-        <div class="w-screen h-screen flex items-center justify-center">
-          <div class="flex flex-col items-center gap-y-4">
-            <div class="font-bold font-caption text-7xl text-[#5F5F66]">4</div>
-            <div class="font-bold font-caption text-base text-[#5F5F66] flex items-end">студии в мск</div>
+        <div class="w-screen h-screen flex pt-[8.125rem] px-[2.5rem]">
+          <div class="flex flex-col gap-y-4 items-start">
+            <div class="border border-black rounded-full font-caption font-bold text-xs px-3 py-2">05 Цифры</div>
+            <div
+              class="whitespace-pre-line font-bold text-[2rem] leading-[2rem] text-[#5F5F66] font-caption"
+            >
+              Наши результаты
+            </div>
           </div>
+        </div>
+        <div class="flex flex-col justify-center items-center gap-y-4 absolute w-full h-full left-0 top-0">
+          <div class="font-bold font-caption text-7xl text-[#5F5F66]">4</div>
+          <div class="font-bold font-caption text-base text-[#5F5F66] flex items-end">студии в мск</div>
         </div>
       </div>
       <div class="step" data-rel-x="578" data-rel-y="0">
-        <div class="w-screen h-screen flex items-center justify-center">
-          <div class="flex flex-col items-center gap-y-4">
-            <div class="font-bold font-caption text-7xl text-[#5F5F66]">120<span class="text-3xl">%</span></div>
-            <div class="font-bold font-caption text-base text-[#5F5F66] flex items-end">ROI</div>
+        <div class="w-screen h-screen flex pt-[8.125rem] px-[2.5rem]">
+          <div class="flex flex-col gap-y-4 items-start">
+            <div class="border border-black rounded-full font-caption font-bold text-xs px-3 py-2">05 Цифры</div>
+            <div
+              class="whitespace-pre-line font-bold text-[2rem] leading-[2rem] text-[#5F5F66] font-caption"
+            >
+              Наши результаты
+            </div>
           </div>
+        </div>
+        <div class="flex flex-col justify-center items-center gap-y-4 absolute w-full h-full left-0 top-0">
+          <div class="font-bold font-caption text-7xl text-[#5F5F66]">120<span class="text-3xl">%</span></div>
+          <div class="font-bold font-caption text-base text-[#5F5F66] flex items-end">ROI</div>
         </div>
       </div>
       <div class="step" data-rel-x="578" data-rel-y="0">
-        <div class="font-bold font-caption text-7xl text-[#5F5F66] fixed w-screen h-screen left-0 top-0 flex items-center justify-center">
-          <div class="ml-[2%]">1000+</div>
+        <div class="w-screen h-screen flex pt-[8.125rem] px-[2.5rem]">
+          <div class="flex flex-col gap-y-4 items-start">
+            <div class="border border-black rounded-full font-caption font-bold text-xs px-3 py-2">05 Цифры</div>
+            <div
+              class="whitespace-pre-line font-bold text-[2rem] leading-[2rem] text-[#5F5F66] font-caption"
+            >
+              Наши результаты
+            </div>
+          </div>
         </div>
-        <div class="w-screen h-screen flex items-center justify-center">
-          <div class="flex flex-col items-center gap-y-4 mt-[70%]">
+        <div class="flex flex-col justify-center items-center gap-y-4 absolute w-full h-full left-0 top-0">
+          <div class="font-bold font-caption text-7xl text-[#5F5F66] ml-[2%] mt-[3%]">1000+</div>
+          <div class="font-bold font-caption text-base text-[#5F5F66] flex items-end">ROI</div>
+        </div>
+        <div class="flex flex-col justify-center items-center gap-y-4 absolute w-full h-full left-0 top-0">
+          <div class="pt-[300px] flex flex-col items-center gap-y-2">
             <div class="font-bold font-caption text-base text-[#5F5F66] flex items-end whitespace-pre-line">
               фитбоксеров
               тренируется
@@ -217,17 +245,10 @@
               Получить презентацию
             </button>
           </div>
-        <div class="fixed w-full h-full left-0 top-0 flex flex-col gap-y-4 items-start pt-[8.125rem] px-[2.5rem]">
-          <div class="border border-black rounded-full font-caption font-bold text-xs px-3 py-2">05 Цифры</div>
-          <div
-            class="whitespace-pre-line font-bold text-[2rem] leading-[2rem] text-[#5F5F66] font-caption"
-          >
-            Наши результаты
-          </div>
-        </div>
         </div>
       </div> 
       <div class="step not-shown" data-rel-x="0" data-rel-y="0" data-z="-3000" data-scale="0.3">
+        <div class="opacity-0 transition-all disabler"></div>
         <div class="w-screen h-screen flex flex-col gap-y-4 items-start pt-[8.125rem] px-[2.5rem]">
           <div
             class="whitespace-pre-line font-bold text-[2rem] leading-[2rem] text-[#5F5F66] font-caption"
@@ -437,6 +458,27 @@
       const app = document.querySelector("#app");
       app.dataset.width = width;
       app.dataset.height = height;
+
+      // let isBlocked = false
+      // const enableLayout = (element, layout) => {
+      //   element.addEventListener('transitionend', () => {
+      //     if (!isBlocked) layout.style.display = 'flex'
+      //   })
+      // }
+
+      // const disableLayout = (element, layout) => {
+      //   element.addEventListener('transitionstart', () => {
+      //     isBlocked = true
+      //     layout.style.display = 'none'
+      //   })
+      //   element.addEventListener('transitionend', () => {
+      //     isBlocked = false
+      //   })
+      // }
+
+      // const layout = document.querySelector('#laythisout')
+      // document.querySelectorAll('.enabler').forEach((element) => enableLayout(element, layout))
+      // document.querySelectorAll('.disabler').forEach((element) => disableLayout(element, layout))
 
       const swapControls = (element) => {
         element.classList.add('without-controls')
