@@ -181,6 +181,12 @@
   .fixed {
     position: fixed;
   }
+  .relative {
+    position: relative;
+  }
+  .sticky {
+    position: sticky;
+  }
   .top-0 {
     top: calc(var(--spacing) * 0);
   }
@@ -201,6 +207,12 @@
   }
   .mt-2 {
     margin-top: calc(var(--spacing) * 2);
+  }
+  .mt-\[70\%\] {
+    margin-top: 70%;
+  }
+  .ml-\[2\%\] {
+    margin-left: 2%;
   }
   .flex {
     display: flex;
@@ -368,9 +380,6 @@
   .pt-6 {
     padding-top: calc(var(--spacing) * 6);
   }
-  .pt-7 {
-    padding-top: calc(var(--spacing) * 7);
-  }
   .pt-\[5\.375rem\] {
     padding-top: 5.375rem;
   }
@@ -431,6 +440,11 @@
     outline-style: var(--tw-outline-style);
     outline-width: 1px;
   }
+  .transition {
+    transition-property: color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, --tw-gradient-from, --tw-gradient-via, --tw-gradient-to, opacity, box-shadow, transform, translate, scale, rotate, filter, -webkit-backdrop-filter, backdrop-filter;
+    transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
+    transition-duration: var(--tw-duration, var(--default-transition-duration));
+  }
   .transition-all {
     transition-property: all;
     transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
@@ -448,6 +462,19 @@
   border-radius: 0;
   background-color: var(--color-amber-950);
   object-fit: cover;
+}
+.inner-layout {
+  display: none;
+}
+.step.present ~ .inner-layout {
+  display: block;
+}
+.step.not-shown {
+  transition: all 1s ease-in-out;
+  opacity: 0;
+}
+.step.present.not-shown, .step.active.not-shown {
+  opacity: 100;
 }
 @property --tw-border-style {
   syntax: "*";
