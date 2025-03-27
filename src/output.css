@@ -475,6 +475,10 @@
     transition-timing-function: var(--ease-in-out);
   }
 }
+.step {
+  margin: 0;
+  padding: 0;
+}
 .present .full-on-present.substep-active {
   inset: calc(var(--spacing) * 0);
   max-height: 100%;
