@@ -182,8 +182,8 @@
           </div>
         </div>
       </div>
-      <div class="step" data-rel-x="578" data-rel-y="758">
-        <div class="w-screen h-screen flex pt-[8.125rem] px-[2.5rem]">
+      <div class="step enabler enabler-first" data-rel-x="578" data-rel-y="758">
+        <div class="numbers-layout-page w-screen h-screen flex pt-[8.125rem] px-[2.5rem]">
           <div class="flex flex-col gap-y-4 items-start">
             <div class="border border-black rounded-full font-caption font-bold text-xs px-3 py-2">05 Цифры</div>
             <div
@@ -198,24 +198,14 @@
           <div class="font-bold font-caption text-base text-[#5F5F66] flex items-end">студии в мск</div>
         </div>
       </div>
-      <div class="step" data-rel-x="578" data-rel-y="0">
-        <div class="w-screen h-screen flex pt-[8.125rem] px-[2.5rem]">
-          <div class="flex flex-col gap-y-4 items-start">
-            <div class="border border-black rounded-full font-caption font-bold text-xs px-3 py-2">05 Цифры</div>
-            <div
-              class="whitespace-pre-line font-bold text-[2rem] leading-[2rem] text-[#5F5F66] font-caption"
-            >
-              Наши результаты
-            </div>
-          </div>
-        </div>
+      <div class="step enabler" data-rel-x="578" data-rel-y="0">
         <div class="flex flex-col justify-center items-center gap-y-4 absolute w-full h-full left-0 top-0">
           <div class="font-bold font-caption text-7xl text-[#5F5F66]">120<span class="text-3xl">%</span></div>
           <div class="font-bold font-caption text-base text-[#5F5F66] flex items-end">ROI</div>
         </div>
       </div>
-      <div class="step" data-rel-x="578" data-rel-y="0">
-        <div class="w-screen h-screen flex pt-[8.125rem] px-[2.5rem]">
+      <div class="step enabler enabler-last" data-rel-x="578" data-rel-y="0">
+        <div class="numbers-layout-page w-screen h-screen flex pt-[8.125rem] px-[2.5rem]">
           <div class="flex flex-col gap-y-4 items-start">
             <div class="border border-black rounded-full font-caption font-bold text-xs px-3 py-2">05 Цифры</div>
             <div
@@ -432,6 +422,18 @@
           />
         </svg>
       </div>
+      <div>
+        <div id="numbers-layout" class="opacity-0 w-screen h-screen flex pt-[4.225rem] px-[2.5rem]">
+          <div class="flex flex-col gap-y-4 items-start">
+            <div class="border border-black rounded-full font-caption font-bold text-xs px-3 py-2">05 Цифры</div>
+            <div
+              class="whitespace-pre-line font-bold text-[2rem] leading-[2rem] text-[#5F5F66] font-caption"
+            >
+              Наши результаты
+            </div>
+          </div>
+        </div>
+      </div>
       <div
         class="w-full impress-progressbar bg-gray-700 h-2 rounded-full transition-all"
       >
@@ -509,12 +511,55 @@
         if (event.target.scrollWidth === event.target.scrollLeft + event.target.offsetWidth) api.next()
       })
 
+      let inFirst = false
+      let inLast = false
+
+      const numbersLayout = document.querySelector('#numbers-layout')
+      const numberLayoutPages = document.querySelectorAll('.numbers-layout-page')
+      const firstNumber = document.querySelector('.enabler-first')
+      const lastNumber = document.querySelector('.enabler-last')
+
       const hammertime = new Hammer(app, {});
       hammertime.get('swipe').set({ direction: Hammer.DIRECTION_VERTICAL });
       hammertime.on('swipe', (event) => {
-        if (0 < event.deltaY) api.prev()
-        else api.next()
+        if (0 < event.deltaY) {
+          if (inFirst) {
+            numbersLayout.style.opacity = 0
+            numberLayoutPages.forEach((page) => page.style.opacity = 1)
+            inFirst = false
+          }
+          api.prev()
+        } else {
+          if (inLast) {
+            numbersLayout.style.opacity = 0
+            numberLayoutPages.forEach((page) => page.style.opacity = 1)
+            inLast = false
+          }
+          api.next()
+        }
       });
+
+      app.addEventListener('impress:stepenter', (event) => {
+        if (event.target.classList.contains('enabler')) {
+          numbersLayout.style.opacity = 1
+          numberLayoutPages.forEach((page) => page.style.opacity = 0)
+          inFirst = event.target.classList.contains('enabler-first')
+          inLast = event.target.classList.contains('enabler-last')
+        } else {
+          numbersLayout.style.opacity = 0
+          numberLayoutPages.forEach((page) => page.style.opacity = 1)
+        }
+      })
+
+      // app.addEventListener('impress:stepleave', (event) => {
+      //   if (event.target.classList.contains('enabler') && !event.target.classList.contains()) {
+      //     numbersLayout.style.opacity = 0
+      //     numberLayoutPages.forEach((page) => page.style.opacity = 1)
+      //   } else {
+      //     numbersLayout.style.opacity = 1
+      //     numberLayoutPages.forEach((page) => page.style.opacity = 0)
+      //   }
+      // })
     </script>
   </body>
 </html>
