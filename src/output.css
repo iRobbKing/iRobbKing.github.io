@@ -212,8 +212,11 @@
   .mt-\[4\%\] {
     margin-top: 4%;
   }
-  .mt-\[4\.2rem\] {
-    margin-top: 4.2rem;
+  .mt-\[4\.125rem\] {
+    margin-top: 4.125rem;
+  }
+  .mt-\[66px\] {
+    margin-top: 66px;
   }
   .block {
     display: block;
@@ -392,12 +395,6 @@
   }
   .pt-6 {
     padding-top: calc(var(--spacing) * 6);
-  }
-  .pt-\[4\.2rem\] {
-    padding-top: 4.2rem;
-  }
-  .pt-\[4\.125rem\] {
-    padding-top: 4.125rem;
   }
   .pt-\[5\.375rem\] {
     padding-top: 5.375rem;
