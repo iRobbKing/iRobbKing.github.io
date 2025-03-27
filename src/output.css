@@ -390,23 +390,11 @@
   .pt-6 {
     padding-top: calc(var(--spacing) * 6);
   }
-  .pt-\[4\.225rem\] {
-    padding-top: 4.225rem;
-  }
   .pt-\[5\.375rem\] {
     padding-top: 5.375rem;
   }
-  .pt-\[6\.6rem\] {
-    padding-top: 6.6rem;
-  }
   .pt-\[8\.125rem\] {
     padding-top: 8.125rem;
-  }
-  .pt-\[8\.275rem\] {
-    padding-top: 8.275rem;
-  }
-  .pt-\[8\.375rem\] {
-    padding-top: 8.375rem;
   }
   .pt-\[300px\] {
     padding-top: 300px;
